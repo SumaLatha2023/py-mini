@@ -50,11 +50,12 @@ questions = [
     ]
 ]
 
-level = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
+level = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 
 print("*** WELCOME TO GoChampionz QUIZ ***")
 
-for i in range(0,len(questions)):
+score = 0
+for i in range(len(questions)):
     question = questions[i]
 
     print()
@@ -69,24 +70,27 @@ for i in range(0,len(questions)):
     answer = int(input("Enter your answer (1/2/3/4) or 0 to Quit : "))
 
     if(answer == 0):
-        level[i] = level[i-1]
+        score = level[i-1]
         break
     elif(answer == question[-1]):
         print("Correct Answer !")
+        score = level[i]
     else:
         print("Wrong Answer !")
         print("Exit")
         break
 
 if(answer == 0 or answer == question[-1]):
-    print(f"YOU SCORED {level[i]} POINTS")
+    print(f"YOU SCORED {score} POINTS")
 
-    if(i>=5 and i<10):    
+    if(score>=5 and score<10):    
         print("Congrats, You won BRONZE Star")
-    elif(i>=10 and i<15):
+    elif(score>=10 and score<15):
         print("Congrats, You won BRONZE and SILVER Stars")
-    elif(i == 15):
+    elif(score == 15):
         print("Congrats, You won BRONZE , SILVER and GOLD Stars")
 
 print("Well Done for your participation\nBEST OF LUCK !!")
+
+
 
